@@ -13,6 +13,7 @@ import ApiServices from '../services/ApiServices';
 export default function Home({ navigation }) {
 
     const loading_stt = useRef(null);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         getPostsData()
@@ -30,6 +31,7 @@ export default function Home({ navigation }) {
             console.log(error)
         }).finally(() => {
             loading_stt.current.show(false)
+            setLoading(false)
         })
     }
 
@@ -42,6 +44,7 @@ export default function Home({ navigation }) {
             <Text style={styles.txtHeader}>All Post</Text>
             <ScrollView>
                 {
+                    (!loading) ?
                     (dataPosts.length > 0) ?
                         dataPosts.map((post, index) => (
                             <TouchableHighlight style={styles.box} key={index.toString()} underlayColor="#0000000D" onPress={() => navigation.navigate('Detail', { id: post.id })}>
@@ -51,6 +54,7 @@ export default function Home({ navigation }) {
                             </TouchableHighlight>
                         ))
                         : <Text>Data is Empty</Text>
+                      : null
                 }
             </ScrollView>
 
