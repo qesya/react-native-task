@@ -54,7 +54,7 @@ export default function Home({ navigation }) {
                             </TouchableHighlight>
                         ))
                         : <Text>Data is Empty</Text>
-                      : null
+                    : null
                 }
             </ScrollView>
 

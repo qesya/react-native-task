@@ -23,7 +23,6 @@ export default function Detail({ navigation, route }) {
     }, [])
 
     //get detail data
-    // const [dataPosts, setDataPosts] = useState([]);
     const [detail, setDetail] = useState([]);
     const [author, setAuthor] = useState([]);
     const [comments, setComments] = useState([]);
